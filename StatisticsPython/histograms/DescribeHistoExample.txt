@@ -1,0 +1,74 @@
+This histogram displays the distribution of chest pain cost for over 2,000 hospitals across the United States. The average and median costs are $?????????? and $??????????, respectively. Given that the data is ??????????modal, with one local maximum and a ??????????-skew, the fact that the average is ?????????? than the median, matches our expectation.
+
+The range of costs is very large, $??????????, with the smallest cost equal to $?????????? and the largest cost equal to $??????????. There is one hospital, ??????????, that charges far more than the rest at $??????????.
+
+Histograms notes
+       SKEW
+Once you have the center and range of your data, you can begin to describe its shape. The skew of a dataset is a description of the data’s symmetry.
+A dataset with one prominent peak, and similar tails to the left and right is called symmetric. The median and mean of a symmetric dataset are similar
+
+A histogram with a tail that extends to the right is called a right-skewed dataset. The median of this dataset is less than the mean.
+A histogram with one prominent peak to the right, and a tail that extends to the left is called a left-skewed dataset. The median of this dataset is greater than the mean.
+
+		Modality
+
+The modality describes the number of peaks in a dataset. Thus far, we have only looked at datasets with one distinct peak, known as unimodal. This is the most common
+
+A bimodal dataset has two distinct peaks.
+
+
+A multimodal dataset has more than two peaks. The histogram below displays three peaks.
+
+You may also see datasets with no obvious clustering. Datasets such as these are called uniform distributions.
+
+	Outlieris
+
+An outlier is a data point that is far away from the rest of the dataset. Ouliers do not have a formal definition, but are easy to determine by looking at histogram. The histogram below shows an example of an oulier. There is one datapoint that is much larger than the rest.
+
+f you see an outlier in your dataset, it’s worth reporting and investigating. This data can often indicate an error in your data or an interesting insight
+
+		Quartiles
+
+A common way to communicate a high-level overview of a dataset is to find the values that split the data into four groups of equal size.
+
+A common way to communicate a high-level overview of a dataset is to find the values that split the data into four groups of equal size.
+The values that split the data into fourths are the quartiles
+In the image above, Q1 is 10, Q2 is 13, and Q3 is 22. Those three values split the data into four groups that each contain five datapoints.
+
+The Second Quartile
+Let’s begin by finding the second quartile (Q2). Q2 happens to be exactly the median. Half of the data falls below Q2 and half of the data falls above Q2.
+he first step in finding the quartiles of a dataset is to sort the data from smallest to largest
+
+Quartiles Review
+Great work! You now know how to calculate the quartiles of any dataset by hand and with NumPy.
+
+Quartiles are some of the most commonly used descriptive statistics. For example, You might see schools or universities think about quartiles when considering which students to accept. Buisnesses might compare their revenue to other companies by looking at quartiles.
+
+In fact quartiles are so commonly used that the three quartiles, along with the minimum and the maximum values of a dataset, are called the five-number summary of the dataset. These five numbers help you quickly get a sense of the range, centrality, and spread of the dataset.
+
+ The IQR ignores the tails of the dataset, so you know the range around-which your data is centered.
+from song_data import songs
+from scipy.stats import iqr
+
+#Create the variables interquartile_range here:
+interquartile_range = iqr(songs)
+
+# Ignore the code below here
+try:
+  print("The IQR of the dataset is " + str(interquartile_range) + "\n")
+except NameError:
+  print("You haven't defined interquartile_range yet\n")
+
+Whiskers
+The whiskers of a boxplot display information related to the spead of the dataset.
+
+There are many different ways to plot the whiskers of a boxplot. You might see some boxplots where the whiskers extend to the minimum and maximum values. Some boxplots have whiskers that extend one standard deviation away from the mean of the data.
+
+However, one of the most commonly used methods of drawing the whiskers is to extend them 1.5 times the interquartile range from the first and third quartile.
+
+For example, let’s say you had a dataset where the first quartile was 4 and the third quartile was 9. The interquartile range for this dataset is 5.
+
+The whiskers would extend 1.5 times the length of the IQR. In this case, that is 1.5 * 5, or 7.5.
+
+We know the whiskers extend 7.5 units, but where do they start? They start at the edges of the box, or the first and third quartiles. In this case, the left whisker starts at the first quartile (4), and extend 7.5 units to the left. So the left whisker extends to -3.5. The right whisker starts at the third quartile (9) and extends to 16.5.
+One more small detail to note — the whiskers usually don’t extend all the way to 1.5 times the IQR. Instead, they extend to the point closest to 1.5 times the IQR in the direction of the median. This means that instead of extending to -3.5 and 16.5, the whiskers would actually extend to the first point greater than -3.5 and the first point less than 16.5. 

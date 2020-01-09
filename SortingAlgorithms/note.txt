@@ -1,0 +1,38 @@
+Quicksort Runtime
+The key to Quicksort’s runtime efficiency is the division of the array. The array is partitioned according to comparisons with the pivot element, so which pivot is the optimal choice to produce sub-arrays of roughly equal length?
+
+The graphic displays two data sets which always use the first element as the pivot. Notice how many more steps are required when the quicksort algorithm is run on an already sorted input. The partition step of the algorithm hardly divides the array at all!
+
+The worst case occurs when we have an imbalanced partition like when the first element is continually chosen in a sorted data-set.
+
+One popular strategy is to select a random element as the pivot for each step. The benefit is that no particular data set can be chosen ahead of time to make the 
+algorithm perform poorly.
+
+Another popular strategy is to take the first, middle, and last elements of the array and choose the median element as the pivot. The benefit is that the division of the array tends to be more uniform.
+
+Quicksort is an unusual algorithm in that the worst case runtime is O(N^2), but the average case is O(N * logN).
+
+We typically only discuss the worst case when talking about an algorithm’s runtime, but for Quicksort it’s so uncommon that we generally refer to it as O(N * logN).
+
+Quicksort Review
+Quicksort is an efficient algorithm for sorting values in a list. A single element, the pivot, is chosen from the list. All the remaining values are partitioned into two sub-lists containing the values smaller than and greater than the pivot element.
+
+Ideally, this process of dividing the array will produce sub-lists of nearly equal length, otherwise, the runtime of the algorithm suffers.
+
+When the dividing step returns sub-lists that have one or less elements, each sub-list is sorted. The sub-lists are recombined, or swaps are made in the original array, to produce a sorted list of values.
+
+Quicksort Introduction
+
+We’ll be implementing a version of the quicksort algorithm in Python. Quicksort is an efficient way of sorting a list of values by partitioning the list into smaller sub-lists based on comparisons with a single “pivot” element.
+
+Our algorithm will be recursive, so we’ll have a base case and an inductive step that takes us closer to the base case. We’ll also sort our list in-place to keep it as efficient as possible.
+
+Sorting in place means we’ll need to keep track of the sub-lists in our algorithm using pointers and swap values inside the list rather than create new lists.
+
+We’ll use pointers a lot in this algorithm so it’s worth spending a little time practicing. Pointers are indices that keep track of a portion of a list. Here’s an example of using pointers to represent the entire list:
+
+Pickin' Pivots
+
+Quicksort works by selecting a pivot element and dividing the list into two sub-lists of values greater than or less than the pivot element’s value. This process of “partitioning” the list breaks the problem down into two smaller sub-lists.
+
+For the algorithm to remain efficient, those sub-lists should be close to equal in length. Here’s an example:

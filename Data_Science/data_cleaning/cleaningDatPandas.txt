@@ -1,0 +1,99 @@
+Data Cleaning with Pandas
+Introduction
+A huge part of data science involves acquiring raw data and getting it into a form ready for analysis. Some have estimated that data scientists spend 80% of their time cleaning and manipulating data, and only 20% of their time actually analyzing it or building models from it.
+
+When we receive raw data, we have to do a number of things before we’re ready to analyze it, possibly including:
+
+    diagnosing the “tidiness” of the data — how much data cleaning we will have to do
+    reshaping the data — getting right rows and columns for effective analysis
+    combining multiple files
+    changing the types of values — how we fix a column where numerical values are stored as strings, for example
+    dropping or filling missing values - how we deal with data that is incomplete or missing
+    manipulating strings to represent the data better
+
+We will go through the techniques data scientists use to accomplish these goals by looking at some “unclean” datasets and trying to get them into a good, clean state.
+
+***********************************************
+
+import codecademylib3_seaborn
+import pandas as pd
+import glob
+
+student_files = glob.glob('exams*.csv')
+df_list = []
+for file in student_files:
+  data = pd.read_csv(file)
+  df_list.append(data)
+  
+students = pd.concat(df_list)
+
+print(len(students))
+
+***********************************************
+import codecademylib3_seaborn
+import pandas as pd
+from students import students
+
+print(students.columns)
+students = pd.melt(frame=students, id_vars=['full_name','gender_age','grade'], value_vars=['fractions', 'probability'], value_name='score', var_name='exam')
+
+print(students.head())
+print(students.columns)
+print(students.exam.value_counts())
+
+********************************************************************************************** **********************************************
+import codecademylib3_seaborn
+import pandas as pd
+from students import students
+
+#print(students)
+
+duplicates = students.duplicated()
+print(duplicates.value_counts())
+students = students.drop_duplicates()
+duplicates = students.duplicated()
+print(duplicates.value_counts())
+**********************************************************************************************
+import codecademylib3_seaborn
+import pandas as pd
+from students import students
+
+print(students.gender_age.head())
+
+students['gender'] = students.gender_age.str[0]
+students['age'] = students.gender_age.str[1:]
+print(students.head())
+
+students = students[['full_name','grade','exam','score','gender','age']]
+**********************************************************************************************
+import codecademylib3_seaborn
+import pandas as pd
+from students import students
+
+name_split = students['full_name'].str.split(" ")
+students['first_name'] = name_split.str.get(0)
+students['last_name'] = name_split.str.get(1)
+
+print(students.head())
+**********************************************************************************************
+import codecademylib3_seaborn
+import pandas as pd
+from students import students
+
+students.score = students['score'].replace('[\%]','',regex=True)
+students.score = pd.to_numeric(students.score)
+----------------------------------------------------------------
+import codecademylib3_seaborn
+import pandas as pd
+from students import students
+
+print(students.grade.head())
+
+students.grade = students.grade.str.split('(\d+)', expand=True)[1]
+
+print(students.dtypes)
+
+students.grade = pd.to_numeric(students.grade)
+avg_grade = students.grade.mean()
+
+print(avg_grade)

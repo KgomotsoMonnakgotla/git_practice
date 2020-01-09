@@ -1,0 +1,150 @@
+What is Machine Learning?
+
+While at IBM, Arthur Samuel developed a program that learned how to play checkers. He called it — *”the field of study that gives computers the ability to learn without being explicitly programmed”* (1959).
+
+What does this mean?
+
+As programmers, we often approach problems in a methodical, logic-based way. We try to determine what our desired outputs should be, and then create the proper rules that will transform our inputs into those outputs.
+
+Machine learning flips the script. We want the program itself to learn the rules that describe our data the best, by finding patterns in what we know and applying those patterns to what we don’t know.
+
+These algorithms are able to learn. Their performance gets better and better with each iteration, as it uncovers more hidden trends in the data.
+
+Supervised Learning
+
+Machine learning can be branched out into the following categories:
+
+    Supervised Learning
+    Unsupervised Learning
+
+Supervised Learning is where the data is labeled and the program learns to predict the output from the input data. For instance, a supervised learning algorithm for credit card fraud detection would take as input a set of recorded transactions. For each transaction, the program would predict if it is fraudulent or not.
+
+Supervised learning problems can be further grouped into regression and classification problems.
+
+Regression:
+
+In regression problems, we are trying to predict a continuous-valued output. Examples are:
+
+    What is the housing price in New York?
+    What is the value of cryptocurrencies?
+
+Classification:
+
+In classification problems, we are trying to predict a discrete number of values. Examples are:
+
+    Is this a picture of a human or a picture of an AI?
+    Is this email spam?
+
+For a quick preview, we will show you an example of supervised learning.
+Unsupervised Learning
+
+Unsupervised Learning is a type of machine learning where the program learns the inherent structure of the data based on unlabeled examples.
+
+Clustering is a common unsupervised machine learning approach that finds patterns and structures in unlabeled data by grouping them into clusters.
+
+Some examples:
+
+    Social networks clustering topics in their news feed
+    Consumer sites clustering users for recommendations
+    Search engines to group similar objects in one cluster
+
+For a quick preview, we will show you an example of unsupervised learning.
+Instructions
+1.
+
+NYBD wants to determine how humans and cyborgs differ from each other in terms of:
+
+    The speed of recovering from wounds
+    Emotional intelligence (EQ)
+    Words per minute (WPM) reading speed
+
+They have taken measurements of these things for the Neo York population and have plotted them on 3 axes.
+
+Press run to see the clusters!
+
+Begin Your Journey
+
+DING DING DING!
+
+Whew, it’s still 2018. There is still time. Understanding Machine Learning will help you change this bleak future, or be ready for it.
+
+As you begin your journey through Codecademy’s Machine Learning content, you will learn the different applications of this powerful field. You will build your own models, test them, and try to improve them. You will analyze bigger, and more complex data and deliver faster, more accurate results — even on a very large scale using:
+
+    Supervised Learning
+    Unsupervised Learning
+
+Throughout your exploration of ML, we hope you gain an understanding of how to harness predictive models to do good, and enhance human life rather than replace it!
+
+
+Introduction to Linear Regression
+
+The purpose of machine learning is often to create a model that explains some real-world data, so that we can predict what may happen next, with different inputs.
+
+The simplest model that we can fit to data is a line. When we are trying to find a line that fits a set of data best, we are performing Linear Regression.
+
+We often want to find lines to fit data, so that we can predict unknowns. For example:
+
+    The market price of a house vs. the square footage of a house. Can we predict how much a house will sell for, given its size?
+    The tax rate of a country vs. its GDP. Can we predict taxation based on a country’s GDP?
+    The amount of chips left in the bag vs. number of chips taken. Can we predict how much longer this bag of chips will last, given how much people at this party have been eating?
+
+Imagine that we had this set of weights plotted against heights of a large set of professional baseball players:
+
+heights vs weights
+
+To create a linear model to explain this data, we might draw this line:
+
+heights vs weights
+
+Now, if we wanted to estimate the weight of a player with a height of 73 inches, we could estimate that it is around 143 pounds.
+
+A line is a rough approximation, but it allows us the ability to explain and predict variables that have a linear relationship with each other. In the rest of the lesson, we will learn how to perform Linear Regression.
+
+Points and Lines
+In the last exercise, you were probably able to make a rough estimate about the next data point for Sandra’s lemonade stand without thinking too hard about it. For our program to make the same level of guess, we have to determine what a line would look like through those data points.
+
+A line is determined by its slope and its intercept. In other words, for each point y on a line we can say:
+
+y=mx+by = m x + by=mx+b
+
+where m is the slope, and b is the intercept. y is a given point on the y-axis, and it corresponds to a given x on the x-axis.
+
+The slope is a measure of how steep the line is, while the intercept is a measure of where the line hits the y-axis.
+
+When we perform Linear Regression, the goal is to get the “best” m and b for our data. We will determine what “best” means in the next exercises.
+Loss
+When we think about how we can assign a slope and intercept to fit a set of points, we have to define what the best fit is.
+
+For each data point, we calculate loss, a number that measures how bad the model’s (in this case, the line’s) prediction was. You may have seen this being referred to as error.
+
+We can think about loss as the squared distance from the point to the line. We do the squared distance (instead of just the distance) so that points above and below the line both contribute to total loss in the same way:
+In this example:
+
+    For point A, the squared distance is 9 (3²)
+    For point B, the squared distance is 1 (1²)
+
+So the total loss, with this model, is 10. If we found a line that had less loss than 10, that line would be a better model for this data.
+
+Minimizing Loss
+The goal of a linear regression model is to find the slope and intercept pair that minimizes loss on average across all of the data.
+
+The interactive visualization in the browser lets you try to find the line of best fit for a random set of data points:
+
+    The slider on the left controls the m (slope)
+    The slider on the right controls the b (intercept)
+
+You can see the total loss on the right side of the visualization. To get the line of best fit, we want this loss to be as small as possible.
+
+To check if you got the best line, check the “Plot Best-Fit” box.
+
+Randomize a new set of points and try to fit a new line by entering the number of points you want (try 8!) in the textbox and pressing Randomize Points.
+Instructions
+
+Play with the interactive visualization in the browser.
+
+Try to notice what method you, as a human and not a computer (hopefully), use to minimize loss:
+
+    Do you first get the slope to where it produces lowest loss, and then move the intercept to where it produces lowest loss?
+    Do you create a rough idea in your mind where the line should be first, and then enter the parameters to match that image?
+
+

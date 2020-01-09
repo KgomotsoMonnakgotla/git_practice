@@ -1,0 +1,21 @@
+Say you work for a major social media website. Your boss always says “data drives all our decisions” and it seems to be true. Metrics are collected on all users of your website, terabytes of data stored in replicated databases.
+
+One day, your boss wants to know if college students are engaging in your website. You pull up the records for users in that age bracket and look at them one by one. The first person only spent half a second on your website before closing the tab — that doesn’t look good. But the second person was on the site for thirty minutes! That’s a running average of 15 minutes site time per user, but you still have half a million records to look at.
+
+On top of that, you need to compare it against other age brackets (and the average overall). That’s going to take a lot of time if you do it all by hand, and you’re still not sure what your methodology for proving college students spend enough time on your website to be “engaged”.
+
+When conducting data analysis, we want to say something meaningful about our data. Often, we want to know if a change or difference we see in a dataset is “real” or if it’s just a normal fluctuation or a result of the specific sample of people we have chosen to measure. A difference we observe in our data is only important if we can be reasonably sure that it is representative of the population as a whole, and reasonably sure that our result is repeatable.
+
+This question of whether a difference is significant or not is essential to making decisions based on that difference. Some instances where this might come up include:
+
+    Performing an A/B test — are the different observations really the results of different conditions (i.e., Condition A vs. Condition B)? Or just the result of random chance?
+    Conducting a survey — is the fact that men gave slightly different responses than women a real difference between men and women? Or just the result of chance?
+
+In this lesson, we will cover the fundamental concepts that will help us create tests to measure our confidence in our statistical results:
+
+    Sample means and population means
+    The Central Limit Theorem
+    Why we use hypothesis tests
+    What errors we can come across and how to classify them
+
+
